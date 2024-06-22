@@ -1,24 +1,27 @@
 import discord
 from discord.ext import commands
 
-prefix = '!'
-token =  'MTI1NDE2MDMzNjYyMjQ1MjgyNw.Gz-mHA.lJlAzvjRHRbUw48iWZyh2mbiva9kwCan8Y33rA'
+max = "10" #max send message
 
-intent = discord.Intents().all()
+message_1 = ""
+message_2 = ""
 
-bot = commands.Bot(command_prefix=prefix, intents=intent)
 
-@bot.command()
+prefix = '/'
+token =  ''
+
+intents = discord.Intents.default()
+
+bot = commands.Bot(command_prefix=prefix, intents=intents)
+
+@bot.listen('on_message')
 
 async def hello(ctx):
-    await ctx.reply("я гитлер")
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    await ctx.channel.send(message_1)
+    await ctx.channel.send(message_2)
+
+
+
+
+
 bot.run(token)
